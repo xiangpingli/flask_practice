@@ -1,0 +1,10 @@
+(1) need packages:
+pip install flask
+pip install flask-script
+
+(2) how to run hello.py:
+# python hello.py runserver --host 0.0.0.0
+
+input 'xxx.xxx.xxx.xxx:5000' in your browser
+(xxx.xxx.xxx.xxx is a public ip)
+you will see "hello world" in browser
