@@ -1,4 +1,0 @@
-1. install
-apt-get install python-jinja2
-
-2. use jinja2

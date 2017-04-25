@@ -1,0 +1,18 @@
+1. install
+apt-get install python-jinja2
+
+jinja2 is inner template of flask
+maybe you need not install it
+
+2. use template
+
+touch hello.py
+mkdir templates
+touch templates/test.html
+touch templates/bad.html
+tree:
+
+|-hello.py
+|-templates/
+    |-test.html
+    |-bad.html
