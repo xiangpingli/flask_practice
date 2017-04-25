@@ -9,6 +9,11 @@ manager = Manager(app)
 def index():
     return render_template('test.html')
 
+@app.route('/user/')
+@app.route('/user/<name>')
+def user():
+    return render_template('user.html')
+
 @app.route('/bad/')
 def badreq():
     return render_template('bad.html')
