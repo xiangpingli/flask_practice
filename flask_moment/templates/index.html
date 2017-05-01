@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}index page{% endblock %}
+{% block page_content %}
+	<h2> THIS IS FIRST PAGE!</h2>
+	{{ super() }}
+	<h1>Hello the local date and time is {{ moment(current_time).format('LLLLLL')}}</h1>
+	<p>That was {{ moment(current_time).fromNow(refresh=True)}} </p>
+{% endblock %}
+
