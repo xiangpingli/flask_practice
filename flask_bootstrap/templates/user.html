@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hello Sample</title>
-</head>
-<body>
-{% if name %}
-  <h1>Hello { NAME }} !</h1>
-{% else %}
-  <h1>Hello World! I am test.html !<?H!>
-{% endif %}
-  
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Flasky{% endblock %}
+{% block page_content %}
+        <h1>Hello, THIS IS user.html page</h1>
+{% endblock %}
