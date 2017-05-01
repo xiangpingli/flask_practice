@@ -1,0 +1,28 @@
+1. install
+pip install flask-bootstrap
+
+
+2. use template
+
+touch hello.py
+mkdir templates
+touch templates/test.html
+touch templates/bad.html
+tree:
+
+|-hello.py
+|-templates/
+    |-test.html
+    |-bad.html
+
+3. run 
+
+(1) in scripte:
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
+(2) cmd:
+#python hello.py runserver 
+
+(3) browser:
+x.x.x.x:5000/test/
