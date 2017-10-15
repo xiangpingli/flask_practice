@@ -17,12 +17,8 @@ tree:
 
 3. run 
 
-(1) in scripte:
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+(1) cmd:
+#python hello.py runserver --host=0.0.0.0 --port=5000
 
-(2) cmd:
-#python hello.py runserver 
-
-(3) browser:
+(2) browser:
 x.x.x.x:5000/test/
