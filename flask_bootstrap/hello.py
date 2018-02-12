@@ -1,15 +1,18 @@
 from flask import Flask
 from flask import render_template
-from flask.ext.script import Manager
+from flask_script import Manager
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from datetime import datetime
 
 app = Flask(__name__)
 manager = Manager(app)
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 @app.route('/test/')
 def test():
-    return render_template('test.html')
+    return render_template('test.html', current_time=datetime.utcnow())
 
 @app.route('/bad/')
 def badreq():
@@ -22,7 +25,7 @@ def user():
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", current_time=datetime.utcnow())
 
 @app.errorhandler(404)
 def page_not_found(e):

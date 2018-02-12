@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hello Sample</title>
-</head>
+{% extends "base.html" %}
+{% block title %}index page{% endblock %}
+{% block page_content %}
+
 <body>
 {% if name %}
   <h1>Hello { NAME }} !</h1>
 {% else %}
   <h1>Hello World! I am test.html !<?H!>
+  <p>The local date and time is {{ moment(current_time).format('LLL')}}.</p>
+  <p>That was {{moment(current_time).fromNow()}}</p>
 {% endif %}
   
 </body>
-</html>
+{% endblock %}
