@@ -1,7 +1,12 @@
 {% extends "base.html" %}
-{% block title %}index page{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %} Flasky {% endblock %}
 {% block page_content %}
-<h2> THIS IS FIRST PAGE!</h2>
-<p>The local date and time is {{ moment(current_time).format('LLL')}}.</p>
-<p>That was {{moment(current_time).fromNow()}}</p>
+<div class="page-header">
+  <h1>Hello, {% if name %} {{ name }} {% else %}Stranger{% endif %}!</h1>
+</div>
+{{ wtf.quick_form(form) }}
 {% endblock %}
+
