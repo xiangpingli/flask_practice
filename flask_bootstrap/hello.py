@@ -52,6 +52,12 @@ class User(db.Model):
 def test():
     return render_template('test.html', current_time=datetime.utcnow())
 
+@app.route('/mysqlquery')
+def mysqlquery():
+    user_all=User.query.all()
+    print user_all
+    return render_template('mysqlquery.html', user_all=user_all)
+
 @app.route('/bad/')
 def badreq():
     return render_template('bad.html')
@@ -69,6 +75,7 @@ def index():
         if user is None:
             user = User(username = form.name.data)
             db.session.add(user)
+            db.session.commit()           
             session['known']= False
         else:
             session['known']=True
