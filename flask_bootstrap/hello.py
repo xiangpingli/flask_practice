@@ -17,10 +17,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/test'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+
+
 db=SQLAlchemy(app)
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+mail = Mail(app)
 
 
 class NameForm(FlaskForm):
@@ -130,6 +133,6 @@ def db_test():
 
 
 if __name__ == '__main__':
-    db_test()
+    #db_test()
     manager.run()
     #db_test()
