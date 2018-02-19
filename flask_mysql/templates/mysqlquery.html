@@ -3,9 +3,9 @@
 {% block page_content %}
 
 <body>
-  <h1>Hello World! I am test.html !<?H!>
+  <h1>All users queried from database:<?H!>
   {% for user in user_all %}
-  <p>The user is {{ user }}.</p>
+  <p> {{user}}</p>
   {% endfor %}
 </body>
 {% endblock %}

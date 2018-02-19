@@ -37,7 +37,7 @@ class Role(db.Model):
     users = db.relationship('User', backref='role', lazy='dynamic')    
 
     def __repr__(self):
-        return '<Role %s>' % self.name
+        return '%s' % self.name
 
 
 class User(db.Model):
@@ -47,27 +47,18 @@ class User(db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     
     def __repr__(self):
-        return '<User> %s' % self.username
+        return '%s' % self.username
 
-
-@app.route('/test/')
-def test():
-    return render_template('test.html', current_time=datetime.utcnow())
 
 @app.route('/mysqlquery')
 def mysqlquery():
     user_all=User.query.all()
     print user_all
-    return render_template('mysqlquery.html', user_all=user_all)
+    user_list=[]
+    for u in user_all:
+        user_list.append(u.username)
+    return render_template('mysqlquery.html', user_all=user_list)
 
-@app.route('/bad/')
-def badreq():
-    return render_template('bad.html')
-
-@app.route('/user/')
-@app.route('/user/<name>')
-def user():
-    return render_template('user.html')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -82,6 +73,7 @@ def index():
         else:
             session['known']=True
         session['name'] = form.name.data
+        db.session.commit()
         form.name.data=''
         return redirect(url_for('index'))
     return render_template("index.html", form=form, name=session.get('name'), known=session.get('known', False))
@@ -129,6 +121,7 @@ def db_test():
     user_all=[]
     user_all=User.query.filter_by(role=user_role).all()
     print("all users:%s") %user_all
+    print user_all[0].username
 
 
 if __name__ == '__main__':
