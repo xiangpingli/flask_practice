@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}index page{% endblock %}
+{% block page_content %}
+
+<body>
+  <h1>Hello World! I am test.html !<?H!>
+  {% for user in user_all %}
+  <p>The user is {{ user }}.</p>
+  {% endfor %}
+</body>
+{% endblock %}
